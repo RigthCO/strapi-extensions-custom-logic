@@ -1,0 +1,11 @@
+# Dependency directories
+/node_modules
+
+# Output of 'npm pack'
+*.tgz
+
+# Build output
+/dist
+
+# Package lock
+package-lock.json
