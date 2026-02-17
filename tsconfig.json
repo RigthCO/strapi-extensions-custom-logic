@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "moduleResolution": "nodenext",
+        "module": "nodenext",
+        "strict": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "declaration": true,
+        "outDir": "dist",
+        "rootDir": "src",
+        "allowJs": true,
+    },
+    "include": ["src"],
+}
