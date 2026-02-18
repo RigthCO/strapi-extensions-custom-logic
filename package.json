@@ -1,7 +1,7 @@
 {
     "version": "0.0.1",
-    "name": "strapi-plugins-extensions",
     "description": "Allows to create custom logic when extending plugins",
+    "name": "strapi-extensions-custom-logic",
     "keywords": [
         "strapi",
         "plugin",
@@ -20,12 +20,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@github.com/RigthCO/strapi-extensions-generator.git"
+        "url": "git+ssh://git@github.com/RigthCO/strapi-extensions-custom-logic.git"
     },
     "bugs": {
-        "url": "https://github.com/RigthCO/strapi-extensions-generator/issues"
+        "url": "https://github.com/RigthCO/strapi-extensions-custom-logic/issues"
     },
-    "homepage": "https://github.com/RigthCO/strapi-extensions-generator#readme",
+    "homepage": "https://github.com/RigthCO/strapi-extensions-custom-logic#readme",
     "license": "MIT",
     "author": "Bruno RightCO <bruno.ascencao@rightco.pt>",
     "peerDependencies": {
