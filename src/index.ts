@@ -2,6 +2,12 @@ import { join, parse } from "path"
 import { readdir } from "fs/promises"
 import type { Core } from "@strapi/strapi"
 
+/** The Strapi instance can be javascript only so this normalization is needed */
+function requireAndNormalize(path: string) {
+    let required = require(path)
+    return required.__esModule ? required.default : required
+}
+
 async function loadCustomsAndGetRequires(plugin: Core.Plugin, calledDir: string, what: "controllers" | "routes" | "services") {
     // Cannot read directory if it doesnt exist
     if( !(await readdir(calledDir)).includes(what) ) {
@@ -19,7 +25,7 @@ async function loadCustomsAndGetRequires(plugin: Core.Plugin, calledDir: string,
         if( originalPluginContent.includes( name ) ) {
             throw new Error(`Not possible to use the name '${name}', thats already a default from the plugin being extended.`)
         }
-        customs.push({ name: name, required: require(join(folderWithCustom, name)).default })
+        customs.push({ name: name, required: requireAndNormalize(join(folderWithCustom, name)) })
     }
     return customs
 }
@@ -69,7 +75,7 @@ async function loadCustomLifecycles(plugin: Core.Plugin, calledDir: string) {
         if( !lifecycles ) {
             continue
         }
-        const required = require( join(contentTypesPath, contentType, "lifecycles") ).default
+        const required = requireAndNormalize( join(contentTypesPath, contentType, "lifecycles") )
         if( !required ) {
             continue
         }

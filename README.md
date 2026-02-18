@@ -1,4 +1,4 @@
-# Strapi v5 Extensions Custom Logic loader
+# Strapi v5 Extensions Custom Logic Loader
 
 A package for [Strapi v5](https://github.com/strapi/strapi) that automates the setup of custom logic (controllers, services, routes and/or lifecycles) just like creating them for a normal API content-type.
 

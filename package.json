@@ -1,5 +1,5 @@
 {
-    "version": "1.0.0",
+    "version": "1.1.1",
     "name": "strapi-extensions-custom-logic",
     "description": "Allows to load plugins extended custom logic just like creating a normal API logic",
     "keywords": [
@@ -15,11 +15,10 @@
     "types": "./dist/index.d.ts",
     "scripts": {
         "build": "tsc",
-        "pack": "npm run build && npm pack",
-        "publish": "npm run build && npm publish"
+        "pack": "npm run build && npm pack"
     },
     "bin": {
-        "cli": "./scripts/cli.js"
+        "cli": "scripts/cli.js"
     },
     "repository": {
         "type": "git",
