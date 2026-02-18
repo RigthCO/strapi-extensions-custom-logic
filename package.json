@@ -1,5 +1,5 @@
 {
-    "version": "0.0.1",
+    "version": "1.0.0",
     "name": "strapi-extensions-custom-logic",
     "description": "Allows to load plugins extended custom logic just like creating a normal API logic",
     "keywords": [
