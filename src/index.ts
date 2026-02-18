@@ -3,8 +3,11 @@ import { readdir } from "fs/promises"
 import type { Core } from "@strapi/strapi"
 
 async function loadCustomsAndGetRequires(plugin: Core.Plugin, calledDir: string, what: "controllers" | "routes" | "services") {
+    // Cannot read directory if it doesnt exist
+    if( !(await readdir(calledDir)).includes(what) ) {
+        return []
+    }
     const originalPluginContent = Object.keys( plugin[what] )
-    // CalledDir is to be the '__dirname' at the strapi-server file. Since this function is here instead of there we need to know the path comming from outside
     const folderWithCustom = join(calledDir, what)
 
     const customs: { name: string, required: any }[] = []
@@ -53,6 +56,9 @@ async function loadCustomServices(plugin: Core.Plugin, calledDir: string) {
 }
 
 async function loadCustomLifecycles(plugin: Core.Plugin, calledDir: string) {
+    if( !(await readdir(calledDir)).includes("content-types") ) {
+        return
+    }
     const contentTypesPath = join(calledDir, "content-types")
     const contentTypes = await readdir(contentTypesPath)
 
